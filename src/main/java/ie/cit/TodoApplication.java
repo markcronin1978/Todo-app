@@ -14,7 +14,7 @@ public class TodoApplication {
 				"beans.xml");
 		TodoRepository todoRepository = ctx.getBean(TodoRepository.class);
 		
-		Todo todo2 =new Todo();
+		Todo todo2 = new Todo();
 		todo2.setText("Close Window");
 		todoRepository.insert(todo2);
 		
