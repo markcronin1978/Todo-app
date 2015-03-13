@@ -17,9 +17,14 @@ public class Todo {
 	public void setId(String id) {
 		this.id = id;
 	}
+	public Boolean isDone() {
+		return done;
+	}
+	
 	public Boolean getDone() {
 		return done;
 	}
+	
 	public void setDone(Boolean done) {
 		this.done = done;
 	}
@@ -33,8 +38,6 @@ public class Todo {
 	@Override
 	public String toString() {
 		return "Todo [id=" + id + ", done=" + done + ", text=" + text + "]";
-	}
-	
-	
+	}	
 
 }

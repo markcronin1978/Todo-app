@@ -27,13 +27,28 @@ public class JdbcTodoRepository implements TodoRepository {
 
 	public void insert(Todo todo) {
 		jdbcTemplate.update("insert into todo(id, done, text) values(?,?,?)",
-				todo.getId(), todo.getDone(), todo.getText());
+				todo.getId(), todo.isDone(), todo.getText());
 		
 	}
 
 	public List<Todo> getAll() {
 		return jdbcTemplate.query("select id, done, text from todo",
 				new TodoRowMapper());
+	}
+	
+	public void delete(String id){
+		jdbcTemplate.update("delete from todo where id=?", id);
+	}
+	
+	public Todo findById(String id){
+		return jdbcTemplate.queryForObject("select id, done, test from todo where id=?", 
+				new TodoRowMapper(), id);
+	}
+
+	public void update(Todo todo) {
+		jdbcTemplate.update("update todo set done=?, text=?  where id=?",
+				 todo.isDone(), todo.getText(), todo.getId());
+		
 	}
 
 }
